@@ -42,7 +42,7 @@ int ft_printf(const char *TEMPLATE, ...)
           index++;
         }
         else 
-          len =+ ft_putchar_fd(TEMPLATE[index], 1); 
+          len += ft_putchar_fd(TEMPLATE[index], 1); 
         index++;
       }
       va_end(arg_list);

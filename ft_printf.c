@@ -13,7 +13,7 @@ len = 0;
 		len = ft_putchar_fd('%', 1); // +1 aqui 
 	else if (token == 's')
 		len = ft_putstr_fd(va_arg(items, char *), 1);
-	else if (token == 'x' || token == 'X')
+	else if (token == 'x')
 		len = ft_printf_hex_lower(va_arg(items, unsigned long int));
         else if (token == 'X')
                 len = ft_printf_hex_upper(va_arg(items, unsigned long int));

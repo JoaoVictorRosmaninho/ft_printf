@@ -13,9 +13,9 @@ len = 0;
 		len = ft_putchar_fd('%', 1); // +1 aqui 
 	else if (token == 's')
 		len = ft_putstr_fd(va_arg(items, char *), 1);
-/*	else if (token == 'x' || token == 'X')
-		len = ft_print_hex(token, va_arg(items, int));
-	else if (token == 'u')
+	else if (token == 'x' || token == 'X')
+		len = ft_printf_hex(va_arg(items, unsigned long int));
+/*1	else if (token == 'u')
 		len = ft_print_unint(va_arg(items, unsigned int));
 	else if (token == 'p')
 		len = ft_print_ptr(va_arg(items, unsigned long int)); */ 

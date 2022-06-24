@@ -1,4 +1,4 @@
-SRCS		=	ft_printf.c src/ft_printf_hex_lower.c src/ft_printf_hex_upper.c
+SRCS		=	ft_printf.c src/ft_printf_hex_lower.c src/ft_printf_hex_upper.c src/ft_printf_utils.c
 
 OBJS		=	$(SRCS:%.c=%.o)
 

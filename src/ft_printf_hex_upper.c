@@ -3,22 +3,12 @@
 ssize_t ft_printf_hex_upper(unsigned long int n)
 {
   ssize_t len;
-  char number[128];
-  unsigned char index = 0;
+  char *number;
   
   len = 0;
   len = ft_putstr_fd("0x", 1); 
-  while (n > 0)
-  {
-    char ch = n % 16; 
-    if (ch > 9)
-      number[index++] = 'A' + (ch - 10);
-    else 
-      number[index++] = '0' + ch;
-    n /= 16;
-  }
-  number[index] = '\0';
-  reverse_array(number, ft_strlen(number) - 1);
+  number = int2hex(n, 1);  
   len += ft_putstr_fd(number, 1);
+  free(number);
   return (len);
 }

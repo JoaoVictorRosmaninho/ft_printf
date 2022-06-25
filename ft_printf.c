@@ -17,10 +17,10 @@ len = 0;
 		len = ft_printf_hex_lower(va_arg(items, unsigned long int));
         else if (token == 'X')
                 len = ft_printf_hex_upper(va_arg(items, unsigned long int));
-/*	else if (token == 'u')
-		len = ft_print_uint(va_arg(items, unsigned int));
+	else if (token == 'u')
+		len = ft_printf_uint(va_arg(items, unsigned int));
 	else if (token == 'p')
-		len = ft_print_ptr(va_arg(items, unsigned long int)); */ 
+		len = ft_printf_ptr(va_arg(items, unsigned long int)); 
 	return (len);
 }
 

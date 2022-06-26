@@ -16,15 +16,17 @@ void reverse_array(char *str, int end)
   }
 }
 
-char *int2hex(unsigned long int n, unsigned char op)
+char *int2hex(unsigned int n, unsigned char op)
 {
   char number[128];
   unsigned char index;
+  char ch;
 
   index = 0;
+  ft_memset(number, 0, 128);
   while (n > 0)
   {
-    char ch = n % 16; 
+    ch = n % 16; 
     if (ch > 9)
     {
       if (!op)
@@ -37,6 +39,28 @@ char *int2hex(unsigned long int n, unsigned char op)
     n /= 16;
   }
   number[index] = '\0';
-  reverse_array(number, ft_strlen(number) - 1);
+  reverse_array(number, index - 1);
+  return (ft_strdup(number));
+}
+
+char *lint2hex(unsigned long int n)
+{
+  char number[128];
+  unsigned char index; 
+  char ch;
+
+  index = 0;
+  ft_memset(number, 0, 128);
+  while (n > 0)
+  {
+    ch = n % 16; 
+    if (ch > 9)
+      number[index++] = 'a' + (ch - 10);
+    else 
+      number[index++] = '0' + ch;
+    n /= 16;
+  }
+  number[index] = '\0';
+  reverse_array(number, index - 1);
   return (ft_strdup(number));
 }

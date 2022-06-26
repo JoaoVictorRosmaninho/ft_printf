@@ -1,26 +1,31 @@
 #include "./ft_printf.h"
 
-static int parser(char token, va_list items)
+static int parser(char *token, va_list items)
 {
         int len; 
 
-len = 0;
-	if (token == 'd' || token == 'i')
+        len = 0;
+	if (*token == 'd' || *token == 'i')
 		len = ft_putnbr_fd(va_arg(items, int), 1);
-	else if (token == 'c')
+	else if (*token == 'c')
 		len = ft_putchar_fd(va_arg(items, int), 1);
-	else if (token == '%')
+	else if (*token == '%')
 		len = ft_putchar_fd('%', 1); // +1 aqui 
-	else if (token == 's')
+	else if (*token == 's')
 		len = ft_putstr_fd(va_arg(items, char *), 1);
-	else if (token == 'x')
-		len = ft_printf_hex_lower(va_arg(items, unsigned long int));
-        else if (token == 'X')
-                len = ft_printf_hex_upper(va_arg(items, unsigned long int));
-	else if (token == 'u')
+	else if (*token == 'x')
+                len = ft_printf_hex_lower(va_arg(items, int));
+        else if (*token == 'X')
+                len = ft_printf_hex_upper(va_arg(items, int));
+	else if (*token == 'u')
 		len = ft_printf_uint(va_arg(items, unsigned int));
-	else if (token == 'p')
+	else if (*token == 'p')
 		len = ft_printf_ptr(va_arg(items, unsigned long int)); 
+        else 
+        {
+                len += ft_putchar_fd(*(--token), 1);
+                len += ft_putchar_fd(*(++token), 1); 
+        } 
 	return (len);
 }
 
@@ -40,7 +45,7 @@ int ft_printf(const char *TEMPLATE, ...)
       {
         if (TEMPLATE[index] == '%')
         {
-          len += parser(*(TEMPLATE + index + 1), arg_list);
+          len += parser((char *)(TEMPLATE + index + 1), arg_list);
           index++;
         }
         else 

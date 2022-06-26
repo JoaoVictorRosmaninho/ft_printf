@@ -3,6 +3,7 @@
 ssize_t ft_printf_ptr(unsigned long int n)
 {
   ssize_t len;
+  char *number;
 
   len = 0;
   if (!n)
@@ -11,6 +12,11 @@ ssize_t ft_printf_ptr(unsigned long int n)
     len = 5;
   }
   else 
-    len = ft_printf_hex_lower(n);
+  {
+    len += ft_putstr_fd("0x", 1);
+    number = lint2hex(n);
+    len += ft_putstr_fd(number, 1);
+    free(number);
+  }
   return (len);
 }

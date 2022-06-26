@@ -4,10 +4,11 @@
 # include "./libft/libft.h"
 
 int ft_printf(const char *TEMPLATE, ...); 
-ssize_t ft_printf_hex_lower(unsigned long int n);
-ssize_t ft_printf_hex_upper(unsigned long int n);
+ssize_t ft_printf_hex_lower(int n);
+ssize_t ft_printf_hex_upper(int n);
 ssize_t ft_printf_uint(unsigned int);
 void reverse_array(char *str, int end);
-char *int2hex(unsigned long int n, unsigned char op);
+char *int2hex(unsigned int n, unsigned char op);
+char *lint2hex(unsigned long int n);
 ssize_t ft_printf_ptr(unsigned long int n);
 #endif

@@ -10,7 +10,7 @@ L_NAME		=	libft.a
 
 COMPILE		=	cc
 
-FLAGS		=	-g -Wall -Wextra -Werror
+FLAGS		=	-g -Wall -Wextra -Werror 
 
 RM			=	rm -rf
 
